@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Register from "./Register";
-import Login from "./Login"; // Importar el nuevo componente
 
 const Navbar = () => {
   const total = 25000;  // Total fijo de la compra
   const token = false;  // Simulación del estado de login del usuario
 
   const [showRegister, setShowRegister] = useState(false);
-  const [showLogin, setShowLogin] = useState(false); // Estado para el login
 
   return (
     <>
@@ -26,7 +24,7 @@ const Navbar = () => {
               </>
             ) : (
               <>
-                <button className="btn btn-link" onClick={() => setShowLogin(true)}>🔐 Login</button>
+                <button className="btn btn-link">🔐 Login</button>
                 <button className="btn btn-link" onClick={() => setShowRegister(true)}>🔐 Register</button>
               </>
             )}
@@ -39,9 +37,8 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Modales */}
+      {/* Modal de Registro */}
       <Register show={showRegister} handleClose={() => setShowRegister(false)} />
-      <Login show={showLogin} handleClose={() => setShowLogin(false)} />
     </>
   );
 };
