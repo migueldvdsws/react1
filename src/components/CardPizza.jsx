@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CardPizza = ({ name, price, ingredients, img }) => {
+const CardPizza = ({ id, name, price, ingredients, img, addToCart }) => {
   return (
     <div className="card" style={{ width: '18rem', position: 'relative' }}>
       <img src={img} className="card-img-top" alt={name} />
@@ -14,11 +14,15 @@ const CardPizza = ({ name, price, ingredients, img }) => {
           ))}
         </ul>
       </div>
-
       {/* Botones en la parte inferior */}
       <div className="card-footer d-flex justify-content-between">
         <button className="btn btn-secondary">Ver más</button>
-        <button className="btn btn-primary">Agregar</button>
+        <button 
+          className="btn btn-primary" 
+          onClick={() => addToCart({ id, name, price, img, ingredients })}
+        >
+          Agregar
+        </button>
       </div>
     </div>
   );
